@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1><i class="fas fa-tasks"></i> Gerenciador de Tarefas</h1>
+            <div class="user-controls">
+                <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+            </div>
+        </header>
+
+        <main class="app-main">
+            <div class="task-controls">
+                <form id="task-form">
+                    <input type="text" id="task-input" placeholder="Adicione uma nova tarefa..." required>
+                    <input type="date" id="task-date">
+                    <select id="task-priority">
+                        <option value="low">Baixa Prioridade</option>
+                        <option value="medium" selected>Média Prioridade</option>
+                        <option value="high">Alta Prioridade</option>
+                    </select>
+                    <button type="submit"><i class="fas fa-plus"></i> Adicionar</button>
+                </form>
+                <div class="task-filters">
+                    <button class="filter-btn active" data-filter="all">Todas</button>
+                    <button class="filter-btn" data-filter="pending">Pendentes</button>
+                    <button class="filter-btn" data-filter="completed">Concluídas</button>
+                </div>
+            </div>
+
+            <div class="task-stats">
+                <span id="total-tasks">0 tarefas</span>
+                <span id="completed-tasks">0 concluídas</span>
+                <span id="pending-tasks">0 pendentes</span>
+            </div>
+
+            <ul id="task-list"></ul>
+        </main>
+
+        <footer class="app-footer">
+            <p>Gerenciador de Tarefas &copy; <span id="current-year"></span> - Gerenciador de Tarefas - Vítor Peyrek Cardoso</p>
+        </footer>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Editar Tarefa</h2>
+            <form id="edit-form">
+                <input type="text" id="edit-task-input" required>
+                <input type="date" id="edit-task-date">
+                <select id="edit-task-priority">
+                    <option value="low">Baixa Prioridade</option>
+                    <option value="medium">Média Prioridade</option>
+                    <option value="high">Alta Prioridade</option>
+                </select>
+                <button type="submit">Salvar Alterações</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
